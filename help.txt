@@ -1,0 +1,18 @@
+NAME
+	clog - check / correct errors for following file types : IDD_LOG_APP, IDD_LOG_IIS
+
+SYNOPSIS
+	clog [OPTION...] [FILE]...
+
+OPTIONS	
+	-c, --config 		display configuration
+	-f, --fields LIST   	select only these fields instead of default LIST
+	-v, --version 		output version information and exit
+	-h, --help 		display this help and exit
+
+EXIT STATUS
+	Exit status is 0 if command was successful, and 1 if there is a syntax error.  If an error was reported by the
+     	kernel exit status is 2.
+	
+AUTHOR
+	Original Manpage by Mickael Reilhac <mickael.reilhac@cfa-afti.com>
