@@ -1,0 +1,9 @@
+host=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
+other=[^\s]+
+logname=[^\s]+
+time1=\[([0-9]{2})/([0-9]{2})/([0-9]{4}):([0-9]{2}):([0-9]{2}):([0-9]{2})[[:space:]]\+[0-9]{4}\]
+methodurl=.(GET|POST|PUT|HEAD|DELETE|PATCH|OPTIONS)[[:space:]][^\s]+[[:space:]]HTTP/[0-9]\.[0-9].
+code=([0-9]{3}|-)
+bytesd=([0-9]+|-)
+referquot=[^\s]+
+uaquot=\".+\"
