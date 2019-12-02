@@ -6,6 +6,7 @@ output=$2
 month=$(ls -la --time-style=+%Y-%m-%d $1 | awk '{print $6}' | cut -d "-" -f 2)
 year=$(ls -la --time-style=+%Y-%m-%d $1 | awk '{print $6}' | cut -d "-" -f 1)
 dest="$output/$month-$year"
+pwd=$(pwd)
 
 if [ $1 = '' ] && [ $2 = '' ]; then
 	echo "Entrez un fichier source et un répertoire de destination."
@@ -35,13 +36,13 @@ do
 	for file in ${files[*]}
 	do
 		regexp=""
-		regexps=$(cat $file | cut -d "=" -f 2)
+		regexps=$(cat "$pwd/$file" | cut -d "=" -f 2)
 		for val in $regexps
 		do
 	        	regexp=$regexp'('$val')[[:space:]]'
 		done
 		regexp=$(echo $regexp | sed "s/\[\[:space:\]\]$//g")
-		format=$(./check_format.sh "$line" "$regexp" "$file")
+		format=$(bash "$pwd/check_format.sh" "$line" "$regexp" "$file")
 		if [ ! -z "$format" ]
 		then
 			config=$file
@@ -58,5 +59,5 @@ fi
 # 'uniq' supprime les doublons, voire plus
 cat $input | uniq | while IFS= read -r line
 do
-	./check_format.sh "$line" "$regexp" "$config" >> "$dest/log-$(date +%m-%d-%y).txt"
+	bash "$pwd/check_format.sh" "$line" "$regexp" "$config" >> "$dest/log-$(date +%m-%d-%y).txt"
 done
