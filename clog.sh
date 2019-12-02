@@ -58,5 +58,5 @@ fi
 # 'uniq' supprime les doublons, voire plus
 cat $input | uniq | while IFS= read -r line
 do
-	./check_format.sh "$line" "$regexp" "$config" >> "$dest/log-$(date +%m-%d-%y)"
+	./check_format.sh "$line" "$regexp" "$config" >> "$dest/log-$(date +%m-%d-%y).txt"
 done
