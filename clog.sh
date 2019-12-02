@@ -12,7 +12,7 @@ if [ $1 = '' ] && [ $2 = '' ]; then
 fi
 
 if [ ! -d "$dest" ]; then
-	mkdir -p $dest
+	mkdir -p "$dest"
 fi
 
 if [ ! -f "$input" ]; then
@@ -58,6 +58,5 @@ fi
 # 'uniq' supprime les doublons, voire plus
 cat $input | uniq | while IFS= read -r line
 do
-	./check_format.sh "$line" "$regexp" "$config"
-	#./check_format.sh "$line" "$regexp" "$config" >> "$dest/log-$(date +%m-%d-%y)"
+	./check_format.sh "$line" "$regexp" "$config" >> "$dest/log-$(date +%m-%d-%y)"
 done
