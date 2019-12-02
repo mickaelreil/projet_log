@@ -6,8 +6,10 @@ output=$2
 month=$(ls -la --time-style=+%Y-%m-%d $1 | awk '{print $6}' | cut -d "-" -f 2)
 year=$(ls -la --time-style=+%Y-%m-%d $1 | awk '{print $6}' | cut -d "-" -f 1)
 dest="$output/$month-$year"
-pwd=$(pwd)
-
+pwd=${0%/*}
+if [ $pwd = $0 ]; then
+	pwd="."
+fi
 if [ $1 = '' ] && [ $2 = '' ]; then
 	echo "Entrez un fichier source et un répertoire de destination."
 fi
