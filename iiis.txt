@@ -1,1 +1,0 @@
-2019-12-05 05:30:18 6.12.124.130 projetLog 89.251.63.195 80 GET /article-ecole.php3 id_rubrique=5&id_ssrubrique=29&id_article=207 200 Mozilla/5.0+(Windows;+U;+Windows+NT+5.1;+fr;+rv:1.8.1.7)+Gecko/20070914+Firefox/2
