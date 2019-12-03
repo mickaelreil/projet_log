@@ -5,11 +5,23 @@ SYNOPSIS
 	clog [SOURCE]... [DESTINATION]...
 
 DESCRIPTION
-	Prétraite les logs d'un serveur à partir d'un fichier source, et crée un fichier prétraités dans
+	Prétraite les logs d'un serveur Web à partir d'un fichier source, et crée un fichier prétraités (.txt) dans
 	un répertoire par mois. 
 
-OPTIONS	
-	-h, --help 		display this help and exit
+	Les fichiers prétraités contiennent les champs suivants :
+	
+	$ip;$year$month$day$hour$minute$second;$code;$base_url;$url_visited;$os;$navigateur;$bytesd
+
+	$ip 					: Adresse IP du client
+	$year$month$day$hour$minute$second 	: Date et heure de connexion (format : yyyyMMddhhmmss)
+	$code 					: Code de retour HTTP/HTTPS
+	$base_url 				: Url de base
+	$url_visited 				: Url visité
+	$os 					: Système d'exploitation
+	$navigateur 				: Nom de navigateur
+	$bytesd 				: Nombre de bits envoyé
+	
+	Si une valeur est nulle, le champ vaut "-".
 
 EXIT STATUS
 	Le statut de la sortie est 0 si la commande a réussi, et 1 s'il y a une erreur de syntaxe ou de format 
