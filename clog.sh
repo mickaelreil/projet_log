@@ -58,8 +58,8 @@ then
 	exit 1
 fi
 # Lecture/Vérification du fichier d'entrée
-# 'uniq' supprime les doublons, voire plus
-cat $input | uniq | while IFS= read -r line
+# 'sort -u' supprime les doublons, voire plus
+cat $input | sort -u | while IFS= read -r line
 do
 
 	bash "$pwd/check_format.sh" "$line" "$regexp" "$config"  >> "$dest/log-$(date +%m-%d-%y).txt"
