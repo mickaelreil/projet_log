@@ -62,6 +62,5 @@ fi
 cat $input | uniq | while IFS= read -r line
 do
 
-	bash "$pwd/check_format.sh" "$line" "$regexp" "$config" 
-	#>> "$dest/log-$(date +%m-%d-%y).txt"
+	bash "$pwd/check_format.sh" "$line" "$regexp" "$config"  >> "$dest/log-$(date +%m-%d-%y).txt"
 done

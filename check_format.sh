@@ -38,7 +38,7 @@ case $3 in
 		bytesd="-"
 		navigateur=$(echo $(echo -n $uaquot|grep -o -E "$enum_navigateur"||echo "-")| awk '{print $1}')
                 os=$(echo $(echo -n $uaquot|grep -o -E "$enum_os"||echo "-")| awk '{print $1}')
-		base_url=$([[ $uaquot =~ (http|https)://(.+)[^[:space:]] ]] && echo ${BASH_REMATCH[2]})
+		base_url=$([[ $uaquot =~ (http|https)://(.+)[^[:space:]] ]] && echo ${BASH_REMATCH[2]} || echo "-")
 		echo "$ip;$year$month$day$hour$minute$second;$code;$base_url;$url_visited;$os;$navigateur;$bytesd"
 	fi;;
 esac
