@@ -8,7 +8,7 @@ month=$(ls -la --time-style=+%Y-%m-%d $1 | awk '{print $6}' | cut -d "-" -f 2)
 year=$(ls -la --time-style=+%Y-%m-%d $1 | awk '{print $6}' | cut -d "-" -f 1)
 dest="$output/$month-$year"
 pwd=${0%/*}
-dest_filename="log-$(date +%m-%d-%y).txt"
+dest_filename="log-$(date +%d-%m-%y).txt"
 output=""
 
 if [ -f "$dest/$dest_filename" ]; then
